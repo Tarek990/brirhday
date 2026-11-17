@@ -119,9 +119,9 @@ export default function BirthdayPage() {
           <span className="wish-label">A MESSAGE FOR YOU</span>
           <h2>To The Birthday Girl</h2>
           <p>
-            كل سنه وانتى طيبه يا احلى واجمل حاحه فى الدنيا كلها
+            كل سنه وانتى طيبه يا احلى واجمل حاجه فى الدنيا كلها
             <br />
-            سوسوتى روح قلبى وحياتى كلها
+            سوستى روح قلبى وحياتى كلها
             <br />
             اللى مطلعه عينى بشخصياتها كلها والله
             <br />
