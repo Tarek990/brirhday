@@ -202,7 +202,7 @@ a {
 }
 
 .gallery-photo {
-  object-fit: cover;
+  object-fit: contain;
 }
 
 .photo-placeholder {
