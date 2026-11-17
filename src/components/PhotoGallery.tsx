@@ -14,18 +14,19 @@ const photos = [
     caption: "القمر بتاعتى",
     alt: "Esraa memory one",
   },
+  
   {
     id: 2,
-    src: image1,
-    caption: "القمر بتاعتى بردو بس معايا",
-    alt: "Esraa memory two",
-  },
-  {
-    id: 3,
     src: image3,
     caption: "القمر بتاعتى بردو",
     alt: "Esraa memory three",
   },
+  {
+    id: 3,
+    src: image1,
+    caption: "القمر بتاعتى بردو بس معايا",
+    alt: "Esraa memory two",
+  }
 ];
 
 export default function PhotoGallery() {
