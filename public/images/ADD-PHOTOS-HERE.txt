@@ -1,0 +1,8 @@
+ضع صور إسراء في هذا المجلد، مثل:
+esraa-1.jpg
+esraa-2.jpg
+esraa-3.jpg
+
+بعدها افتح src/components/PhotoGallery.tsx وغيّر src: null إلى:
+src: "/images/esraa-1.jpg"
+وكرر ذلك لباقي الصور.
