@@ -12,23 +12,56 @@ export default function LandingPage() {
   const areaRef = useRef<HTMLDivElement>(null);
   const [position, setPosition] = useState({ x: 0, y: 0 });
 
-  const moveButton = () => {
+  const moveButton = (button?: HTMLButtonElement) => {
     const area = areaRef.current;
     if (!area) return;
 
-    const maxX = area.clientWidth / 2 + 120;
-    const maxY = 180;
+    // Desktop: نفس الحركة اللي عجبتك
+    if (window.innerWidth > 767) {
+      const maxX = area.clientWidth / 2 + 120;
+      const maxY = 180;
+
+      const angle = Math.random() * Math.PI * 2;
+      const distance = 150 + Math.random() * 200;
+
+      setPosition({
+        x: Math.cos(angle) * distance,
+        y: Math.sin(angle) * distance,
+      });
+
+      return;
+    }
+
+    // Mobile
+    if (!button) return;
+
+    const rect = button.getBoundingClientRect();
+
+    const padding = 12;
+    const distance = 150 + Math.random() * 100;
+
+    const maxX = window.innerWidth - rect.width - padding;
+    const maxY = window.innerHeight - rect.height - padding;
+
+    const minX = padding;
+    const minY = padding;
+
+    const currentX = rect.left;
+    const currentY = rect.top;
 
     const angle = Math.random() * Math.PI * 2;
 
-    const distance = 150 + Math.random() * 200;
+    let targetX = currentX + Math.cos(angle) * distance;
+    let targetY = currentY + Math.sin(angle) * distance;
+
+    targetX = Math.max(minX, Math.min(maxX, targetX));
+    targetY = Math.max(minY, Math.min(maxY, targetY));
 
     setPosition({
-      x: Math.cos(angle) * distance,
-      y: Math.sin(angle) * distance,
+      x: position.x + (targetX - currentX),
+      y: position.y + (targetY - currentY),
     });
   };
-
   return (
     <main className="landing-page">
       <FloatingDecorations />
@@ -77,16 +110,17 @@ export default function LandingPage() {
             animate={{ x: position.x, y: position.y }}
             transition={{
               type: "spring",
-              stiffness: 500,
-              damping: 15,
+              stiffness: 1000,
+              damping: 12,
+              mass: 0.4,
             }}
-            onMouseEnter={moveButton}
-            onFocus={moveButton}
+            onMouseEnter={(e) => moveButton(e.currentTarget)}
+            onFocus={(e) => moveButton(e.currentTarget)}
             onTouchStart={(e) => {
               e.preventDefault();
-              moveButton();
+              moveButton(e.currentTarget);
             }}
-            onClick={moveButton}
+            onClick={(e) => moveButton(e.currentTarget)}
           >
             <HeartCrack size={18} />
             Not Love
