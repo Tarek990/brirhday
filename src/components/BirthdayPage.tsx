@@ -89,7 +89,7 @@ export default function BirthdayPage() {
           <h1>
             كل سنة وإنتي طيبة
             <br />
-            <span>يا سوستى</span>
+            <span>يا احلى سوسو فى الدنيا كلها</span>
             <span className="title-heart"> 💗</span>
           </h1>
 
@@ -127,6 +127,8 @@ export default function BirthdayPage() {
             <br />
             بس بردو ما زالتى اغلى حاجه فى حياتى كلها يسوستى
             <br />
+            انتى قلبى وحياتى يسوسو  ويبختى بالقمر دا
+            <br/>
             تستاهلي كل حاجة جميلة في الدنيا. 💗
           </p>
           <div className="wish-signature">With Lots Of Love ❤️</div>

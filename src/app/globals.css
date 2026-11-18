@@ -204,7 +204,10 @@ a {
 .gallery-photo {
   object-fit: contain;
 }
-
+.p1{
+  font-size: 30px;
+  font-weight: bold;
+}
 .photo-placeholder {
   color: #d77ca0;
   flex-direction: column;

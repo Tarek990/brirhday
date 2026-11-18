@@ -16,12 +16,16 @@ export default function LandingPage() {
     const area = areaRef.current;
     if (!area) return;
 
-    const maxX = Math.max(50, Math.min(130, area.clientWidth * 3));
-    const maxY = 60;
+    const maxX = area.clientWidth / 2 + 120;
+    const maxY = 180;
+
+    const angle = Math.random() * Math.PI * 2;
+
+    const distance = 150 + Math.random() * 200;
 
     setPosition({
-      x: (Math.random() * 2 - 1) * maxX,
-      y: (Math.random() * 2 - 1) * maxY,
+      x: Math.cos(angle) * distance,
+      y: Math.sin(angle) * distance,
     });
   };
 
@@ -71,10 +75,17 @@ export default function LandingPage() {
             type="button"
             className="choice-button choice-not-love"
             animate={{ x: position.x, y: position.y }}
-            transition={{ type: "spring", stiffness: 380, damping: 17 }}
+            transition={{
+              type: "spring",
+              stiffness: 500,
+              damping: 15,
+            }}
             onMouseEnter={moveButton}
             onFocus={moveButton}
-            onTouchStart={moveButton}
+            onTouchStart={(e) => {
+              e.preventDefault();
+              moveButton();
+            }}
             onClick={moveButton}
           >
             <HeartCrack size={18} />

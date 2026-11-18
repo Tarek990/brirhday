@@ -78,6 +78,7 @@ export default function SurpriseGift() {
                 <br />
                 وبيختى ان انا معايا القمر دى
                 <br />
+                <p className="p1">يبختى يجدعااان قسما بالله</p>
                 <strong>Happy Birthday! 🎂</strong>
               </p>
               <span>Made with lots of love ❤️</span>
